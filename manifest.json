@@ -1,0 +1,22 @@
+{
+  "name": "No Shorts",
+  "author": "Wilian S. de Oliveira",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "This is an extension that removes all short videos from your Youtube account.",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "No Shorts"
+  },
+  "permissions": ["storage", "activeTab"],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["scripts/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
